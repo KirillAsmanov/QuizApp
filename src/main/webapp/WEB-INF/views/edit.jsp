@@ -24,7 +24,5 @@
 
     <input type="submit" value="Продолжить">
 </form>
-<c:url value="/edit/${quiz.id}/new" var="var1"/>
-<a href="${var1}">info</a>
 </body>
 </html>

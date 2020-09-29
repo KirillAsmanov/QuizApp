@@ -30,7 +30,5 @@
 
         <c:url value="/add" var="add"/>
         <a href="${add}">Добавить новый</a>
-        <br>
-        <a href="/new">а как тебе такое?</a>
     </body>
 </html>
