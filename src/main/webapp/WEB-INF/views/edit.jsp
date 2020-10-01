@@ -22,7 +22,20 @@
     <label for="questionCount">Укажите количество вопросов</label>
     <input type="text" name="questionCount" id="questionCount">
 
+    <c:if test="${!empty quiz.name}">
+    <c:forEach var="question" items="${questionList}">
+        <tr>
+            <td>${question.text}</td>
+            <td>
+                <a href="/edit/${question.id}">edit</a>
+                <a href="/delete/${question.id}">delete</a>
+            </td>
+        </tr>
+    </c:forEach>
+    </c:if>
+
     <input type="submit" value="Продолжить">
+
 </form>
 </body>
 </html>

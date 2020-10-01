@@ -5,6 +5,6 @@
 </head>
 <body>
 <h1>Работаем</h1>
-<p>${quiz1}</p>
+<p>${quiz}</p>
 </body>
 </html>

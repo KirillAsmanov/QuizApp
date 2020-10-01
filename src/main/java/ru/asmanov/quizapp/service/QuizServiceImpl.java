@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.asmanov.quizapp.dao.QuizDao;
 import ru.asmanov.quizapp.dao.QuizDaoImpl;
+import ru.asmanov.quizapp.model.Question;
 import ru.asmanov.quizapp.model.Quiz;
 
 import java.util.List;
@@ -40,5 +41,10 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public Quiz getById(int id) {
         return quizDao.getById(id);
+    }
+
+    @Override
+    public List<Question> allQuestion(Quiz quiz) {
+        return quizDao.allQuestion(quiz);
     }
 }

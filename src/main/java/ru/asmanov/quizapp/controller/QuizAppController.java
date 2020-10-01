@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.asmanov.quizapp.dao.QuizDaoImpl;
+import ru.asmanov.quizapp.model.Question;
 import ru.asmanov.quizapp.model.Quiz;
 import ru.asmanov.quizapp.service.QuizService;
 import ru.asmanov.quizapp.service.QuizServiceImpl;
@@ -38,6 +39,8 @@ public class QuizAppController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("edit");
         modelAndView.addObject("quiz", quiz);
+        List<Question> questionList = quizService.allQuestion(quiz);
+        modelAndView.addObject("questionList", questionList);
         return modelAndView;
     }
 

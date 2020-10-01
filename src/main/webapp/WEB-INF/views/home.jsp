@@ -18,7 +18,7 @@
             <c:forEach var="quiz" items="${quizList}">
             <tr>
                 <td>${quiz.name}</td>
-                <td>${quiz.questionCount}</td>
+                <td>${quiz.questionsMap.size()}</td>
                 <td><fmt:formatDate value='${quiz.createDate}' type='date' pattern='yyyy-MM-dd'/></td>
                 <td>
                     <a href="/edit/${quiz.id}">edit</a>

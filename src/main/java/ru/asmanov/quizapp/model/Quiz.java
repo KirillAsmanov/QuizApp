@@ -1,13 +1,13 @@
 package ru.asmanov.quizapp.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Map;
 
 public class Quiz {
     private int id;
     private String name;
-    private int questionCount;
-    private List<Question> questionsList;
+    private String description;
+    private Map<Integer ,Question> questionsMap;
     private Date createDate;
 
     public Quiz() {
@@ -30,23 +30,23 @@ public class Quiz {
         this.name = name;
     }
 
-    public int getQuestionCount() {
-        return questionCount;
+    public Map<Integer ,Question> getQuestionsMap() {
+        return questionsMap;
     }
 
-    public void setQuestionCount(int questionCount) {
-        this.questionCount = questionCount;
-    }
-
-    public List<Question> getQuestionsList() {
-        return questionsList;
-    }
-
-    public void setQuestionsList(List<Question> questionsList) {
-        this.questionsList = questionsList;
+    public void setQuestionsMap(Map<Integer ,Question> questionsMap) {
+        this.questionsMap = questionsMap;
     }
 
     public Date getCreateDate() {
         return createDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
