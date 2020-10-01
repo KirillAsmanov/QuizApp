@@ -7,21 +7,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ru.asmanov.quizapp.dao.QuizDaoImpl;
 import ru.asmanov.quizapp.model.Question;
 import ru.asmanov.quizapp.model.Quiz;
+import ru.asmanov.quizapp.service.QuestionService;
 import ru.asmanov.quizapp.service.QuizService;
-import ru.asmanov.quizapp.service.QuizServiceImpl;
 
 import java.util.List;
 
 @Controller
 public class QuizAppController {
     private QuizService quizService;
+    private QuestionService questionService;
 
     @Autowired
-    public QuizAppController(QuizService quizService) {
+    public QuizAppController(QuizService quizService, QuestionService questionService) {
         this.quizService = quizService;
+        this.questionService = questionService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -39,7 +40,7 @@ public class QuizAppController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("edit");
         modelAndView.addObject("quiz", quiz);
-        List<Question> questionList = quizService.allQuestion(quiz);
+        List<Question> questionList = questionService.allQuestion(quiz);
         modelAndView.addObject("questionList", questionList);
         return modelAndView;
     }
@@ -74,6 +75,16 @@ public class QuizAppController {
         modelAndView.setViewName("redirect:/");
         Quiz quiz = quizService.getById(id);
         quizService.delete(quiz);
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/delete/{id}/{question_id}", method = RequestMethod.GET)
+    public ModelAndView deleteFilm(@PathVariable("id") int id, @PathVariable("question_id") int questionId) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/edit/{id}");
+        Quiz quiz = quizService.getById(id);
+        Question question = questionService.getById(quiz, questionId);
+        questionService.delete(quiz, question);
         return modelAndView;
     }
 }

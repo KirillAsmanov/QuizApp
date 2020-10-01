@@ -11,6 +11,7 @@
         <table>
             <tr>
                 <th>Название:</th>
+                <th>Описание:</th>
                 <th>Вопросов:</th>
                 <th>Дата:</th>
                 <th>Действие:</th>
@@ -18,6 +19,7 @@
             <c:forEach var="quiz" items="${quizList}">
             <tr>
                 <td>${quiz.name}</td>
+                <td>${quiz.description}</td>
                 <td>${quiz.questionsMap.size()}</td>
                 <td><fmt:formatDate value='${quiz.createDate}' type='date' pattern='yyyy-MM-dd'/></td>
                 <td>

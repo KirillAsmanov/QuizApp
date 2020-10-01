@@ -42,9 +42,4 @@ public class QuizServiceImpl implements QuizService {
     public Quiz getById(int id) {
         return quizDao.getById(id);
     }
-
-    @Override
-    public List<Question> allQuestion(Quiz quiz) {
-        return quizDao.allQuestion(quiz);
-    }
 }

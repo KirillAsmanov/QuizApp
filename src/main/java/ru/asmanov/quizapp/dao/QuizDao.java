@@ -11,5 +11,4 @@ public interface QuizDao {
     void delete(Quiz quiz);
     void edit(Quiz quiz);
     Quiz getById(int id);
-    List<Question> allQuestion(Quiz quiz);
 }

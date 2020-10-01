@@ -76,10 +76,4 @@ public class QuizDaoImpl implements QuizDao{
         logger.info("Quiz successfully added: " + quiz);
         return quiz;
     }
-
-    @Override
-    public List<Question> allQuestion(Quiz quiz) {
-        List<Question> questionList = new ArrayList<>(quiz.getQuestionsMap().values());
-        return questionList;
-    }
 }
